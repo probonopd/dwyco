@@ -12,6 +12,10 @@ install:
   - source /opt/qt*/bin/qt*-env.sh
 
 script:
+  - cd bld/libuv
+  - make -j$(nproc)
+  - sudo make install
+  - cd -
   - qmake CONFIG+=release PREFIX=/usr phoobld.pro
   - make -j$(nproc)
   - make INSTALL_ROOT=appdir -j$(nproc) install ; find appdir/
