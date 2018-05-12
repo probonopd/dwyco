@@ -14,6 +14,8 @@ install:
 script:
   - cd bld/libuv
   - make -j$(nproc)
+  - sudo cp libuv.a /usr/lib
+  - sudo cp include/uv.h /usr/share/include
   - cd -
   - qmake CONFIG+=release PREFIX=/usr phoobld.pro
   - make -j$(nproc)
