@@ -15,6 +15,7 @@ script:
   - cd bld/libuv
   - make -j$(nproc)
   - sudo cp libuv.a /usr/lib
+  - mkdir -p ../../lib ; cp libuv.a ../../lib/libuv.a
   - sudo cp include/uv.h /usr/share/include
   - cd -
   - qmake CONFIG+=release PREFIX=/usr DWYCO_CONFDIR=phoobld phoobld.pro
