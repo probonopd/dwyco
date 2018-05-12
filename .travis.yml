@@ -20,7 +20,9 @@ script:
   - cd -
   - qmake CONFIG+=release PREFIX=/usr DWYCO_CONFDIR=phoobld phoobld.pro
   - make -j$(nproc)
-  - make INSTALL_ROOT=appdir -j$(nproc) install ; find appdir/
+  - make INSTALL_ROOT=appdir -j$(nproc) install
+  - cd phoo/ # FIXME
+  - find appdir/
   - wget -c -nv "https://github.com/probonopd/linuxdeployqt/releases/download/continuous/linuxdeployqt-continuous-x86_64.AppImage"
   - chmod a+x linuxdeployqt-continuous-x86_64.AppImage
   - unset QTDIR; unset QT_PLUGIN_PATH ; unset LD_LIBRARY_PATH
