@@ -18,7 +18,7 @@ script:
   - mkdir -p ../../lib ; cp libuv.a ../../lib/libuv.a
   - sudo cp include/uv.h /usr/share/include
   - cd -
-  - qmake CONFIG+=release PREFIX=/usr DWYCO_CONFDIR=phoobld phoobld.pro
+  - qmake CONFIG+=appdir CONFIG+=release PREFIX=/usr DWYCO_CONFDIR=phoobld phoobld.pro # FIXME; remove the need for a special "appdir" configuration
   - make -j$(nproc)
   - make INSTALL_ROOT=appdir -j$(nproc) install
   - cd phoo/ # FIXME
